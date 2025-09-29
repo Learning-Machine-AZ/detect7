@@ -1,0 +1,2116 @@
+{
+  "v": "1",
+  "id": "bbed5810-5d5a-40b7-83f7-616140550b5a",
+  "rev": 2,
+  "name": "Dashboard test",
+  "summary": "Dashboard export test",
+  "description": "",
+  "vendor": "LearningMachine.az",
+  "url": "",
+  "parameters": [],
+  "entities": [
+    {
+      "v": "1",
+      "type": {
+        "name": "dashboard",
+        "version": "2"
+      },
+      "id": "ad592063-3d1b-4aa5-b4b5-497c943066af",
+      "data": {
+        "summary": {
+          "@type": "string",
+          "@value": ""
+        },
+        "search": {
+          "queries": [
+            {
+              "id": "d6f98e5a-5775-4ac8-8d8f-3e7af1fff297",
+              "timerange": {
+                "from": 300,
+                "type": "relative"
+              },
+              "filters": [],
+              "query": {
+                "type": "elasticsearch",
+                "query_string": ""
+              },
+              "search_types": [
+                {
+                  "query": null,
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "max",
+                      "id": "RPS (max.)",
+                      "field": "req_rate"
+                    },
+                    {
+                      "type": "max",
+                      "id": "Requests",
+                      "field": "req_count"
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "timestamp",
+                        "domain",
+                        "ptr",
+                        "ip",
+                        "country"
+                      ],
+                      "limit": 15,
+                      "skip_empty_values": true
+                    }
+                  ],
+                  "type": "pivot",
+                  "stream_categories": [],
+                  "id": "111fc515-1b0c-4eab-adac-436dfea53f09",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": [
+                    {
+                      "type": "pivot",
+                      "field": "timestamp",
+                      "direction": "Descending"
+                    }
+                  ]
+                },
+                {
+                  "query": null,
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "Requests",
+                      "field": null
+                    },
+                    {
+                      "type": "count",
+                      "id": "Known bots",
+                      "field": "bot_category"
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "time",
+                      "fields": [
+                        "timestamp"
+                      ],
+                      "interval": {
+                        "type": "auto",
+                        "scaling": 1
+                      }
+                    }
+                  ],
+                  "type": "pivot",
+                  "stream_categories": [],
+                  "id": "406fdd9b-e797-470a-8580-018aa2730c5d",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": null,
+                  "name": "events",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "streams": [],
+                  "filter": null,
+                  "type": "events",
+                  "stream_categories": [],
+                  "id": "b2693f04-e1ba-4e5f-9905-b0ce32303d78",
+                  "filters": []
+                },
+                {
+                  "query": null,
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "Requests",
+                      "field": null
+                    },
+                    {
+                      "type": "count",
+                      "id": "Known bots",
+                      "field": "bot_category"
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "domain"
+                      ],
+                      "limit": 10,
+                      "skip_empty_values": true
+                    }
+                  ],
+                  "type": "pivot",
+                  "stream_categories": [],
+                  "id": "ba129862-6a7c-4ce4-8357-a1e72e15ab5c",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": [
+                    {
+                      "type": "series",
+                      "field": "count()",
+                      "direction": "Descending"
+                    }
+                  ]
+                },
+                {
+                  "query": null,
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "Requests",
+                      "field": null
+                    },
+                    {
+                      "type": "count",
+                      "id": "Known bots",
+                      "field": "bot_category"
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "country"
+                      ],
+                      "limit": 10,
+                      "skip_empty_values": false
+                    }
+                  ],
+                  "type": "pivot",
+                  "stream_categories": [],
+                  "id": "25fe325b-779a-4614-a5b1-8dd9cedef2f0",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": [
+                    {
+                      "type": "series",
+                      "field": "count()",
+                      "direction": "Descending"
+                    }
+                  ]
+                },
+                {
+                  "query": null,
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "sum",
+                      "id": "RPM (sum)",
+                      "field": "req_rate"
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "time",
+                      "fields": [
+                        "timestamp"
+                      ],
+                      "interval": {
+                        "type": "auto",
+                        "scaling": 1
+                      }
+                    }
+                  ],
+                  "type": "pivot",
+                  "stream_categories": [],
+                  "id": "b5a834d7-a7eb-443f-a5b4-2ee0424e257a",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": null,
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "Problems",
+                      "field": "problem"
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "domain"
+                      ],
+                      "limit": 10,
+                      "skip_empty_values": true
+                    }
+                  ],
+                  "type": "pivot",
+                  "stream_categories": [],
+                  "id": "a1bfcf23-80bf-4470-9397-01c9e7ecf37d",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": [
+                    {
+                      "type": "series",
+                      "field": "count(problem)",
+                      "direction": "Descending"
+                    }
+                  ]
+                },
+                {
+                  "query": null,
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "max",
+                      "id": "RPS (max.)",
+                      "field": "req_rate"
+                    },
+                    {
+                      "type": "max",
+                      "id": "Requests",
+                      "field": "req_count"
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "timestamp",
+                        "domain",
+                        "ip",
+                        "country"
+                      ],
+                      "limit": 15,
+                      "skip_empty_values": true
+                    }
+                  ],
+                  "type": "pivot",
+                  "stream_categories": [],
+                  "id": "4254ba7c-a208-45d1-aade-e0300539c771",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": [
+                    {
+                      "type": "pivot",
+                      "field": "timestamp",
+                      "direction": "Descending"
+                    }
+                  ]
+                },
+                {
+                  "query": null,
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "Problems",
+                      "field": "problem"
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "time",
+                      "fields": [
+                        "timestamp"
+                      ],
+                      "interval": {
+                        "type": "auto",
+                        "scaling": 1
+                      }
+                    }
+                  ],
+                  "type": "pivot",
+                  "stream_categories": [],
+                  "id": "a5693dd7-e66f-49cf-b2c5-b88e02d098a7",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                }
+              ]
+            },
+            {
+              "id": "3535d8b5-9461-486e-b53e-9379f0375bf0",
+              "timerange": {
+                "from": 300,
+                "type": "relative"
+              },
+              "filters": [],
+              "query": {
+                "type": "elasticsearch",
+                "query_string": ""
+              },
+              "search_types": [
+                {
+                  "query": null,
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "Category",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "bot_category"
+                      ],
+                      "limit": 100,
+                      "skip_empty_values": true
+                    }
+                  ],
+                  "type": "pivot",
+                  "stream_categories": [],
+                  "id": "2e95e190-ca8f-4e58-8664-2508a8c06e9e",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": null,
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "Supported",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "bot_support"
+                      ],
+                      "limit": 100,
+                      "skip_empty_values": true
+                    }
+                  ],
+                  "type": "pivot",
+                  "stream_categories": [],
+                  "id": "799f8259-5e8a-4e09-8b51-74e6d39bd893",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": null,
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "Bot",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "bot_name"
+                      ],
+                      "limit": 100,
+                      "skip_empty_values": true
+                    }
+                  ],
+                  "type": "pivot",
+                  "stream_categories": [],
+                  "id": "61cde1e4-112b-498b-856c-ecef1382f231",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                }
+              ]
+            },
+            {
+              "id": "446f33dc-693e-4e97-9236-cbfae14a0380",
+              "timerange": {
+                "from": 300,
+                "type": "relative"
+              },
+              "filters": [],
+              "query": {
+                "type": "elasticsearch",
+                "query_string": ""
+              },
+              "search_types": [
+                {
+                  "query": null,
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "Count",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "domain"
+                      ],
+                      "limit": 15,
+                      "skip_empty_values": true
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "http_referrer"
+                      ],
+                      "limit": 15,
+                      "skip_empty_values": true
+                    }
+                  ],
+                  "type": "pivot",
+                  "stream_categories": [],
+                  "id": "f60aace4-90a6-42da-a86d-5dadc6b24493",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": [
+                    {
+                      "type": "series",
+                      "field": "count()",
+                      "direction": "Descending"
+                    }
+                  ]
+                },
+                {
+                  "query": null,
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "Count",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "domain"
+                      ],
+                      "limit": 20,
+                      "skip_empty_values": true
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "response_status"
+                      ],
+                      "limit": 20,
+                      "skip_empty_values": true
+                    }
+                  ],
+                  "type": "pivot",
+                  "stream_categories": [],
+                  "id": "e755717c-7927-482e-a1e6-184b085fec30",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": [
+                    {
+                      "type": "series",
+                      "field": "count()",
+                      "direction": "Descending"
+                    }
+                  ]
+                },
+                {
+                  "query": null,
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "Count",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "http_user_agent"
+                      ],
+                      "limit": 20,
+                      "skip_empty_values": true
+                    }
+                  ],
+                  "type": "pivot",
+                  "stream_categories": [],
+                  "id": "c4459b77-2448-41d9-9dfb-72ac543ae6ea",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": [
+                    {
+                      "type": "series",
+                      "field": "count()",
+                      "direction": "Descending"
+                    }
+                  ]
+                },
+                {
+                  "query": null,
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "Requests",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "domain"
+                      ],
+                      "limit": 15,
+                      "skip_empty_values": true
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "http_uri"
+                      ],
+                      "limit": 15,
+                      "skip_empty_values": true
+                    }
+                  ],
+                  "type": "pivot",
+                  "stream_categories": [],
+                  "id": "57b8d0d1-4ff8-4a72-bcf0-1ab83ea0ae5e",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": [
+                    {
+                      "type": "series",
+                      "field": "count()",
+                      "direction": "Descending"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": [],
+          "requires": {},
+          "owner": "admin",
+          "created_at": "2025-09-18T10:50:04.739Z"
+        },
+        "created_at": "2025-09-15T07:11:39.376Z",
+        "requires": {},
+        "state": {
+          "d6f98e5a-5775-4ac8-8d8f-3e7af1fff297": {
+            "selected_fields": null,
+            "static_message_list_id": null,
+            "titles": {
+              "widget": {
+                "5cf0b1c9-fa22-4247-afd4-d39b29a4e78f": "Requests",
+                "62c817d6-8ea9-4105-9213-5423ad1d2c4e": "TOP 10 Domains by Problems",
+                "3a3b4c4d-add5-4d44-8410-ed9f0ad608bc": "Problem IPs",
+                "d6a0f05b-5f24-47d9-a17a-12c83be7d47b": "TOP 10 Countries",
+                "e1718c48-e17a-42d4-834f-002b9d177470": "Problems RPS",
+                "52bdace0-f1fc-49d5-adc2-942fb329244a": "Problem Hosts",
+                "3604381b-7618-4f7e-9735-3e2174416ef4": "TOP 10 Domains by Requests",
+                "4118aa3d-2b24-4c80-9a71-f91040d6f805": "Problems"
+              },
+              "tab": {
+                "title": "Detect7"
+              }
+            },
+            "widgets": [
+              {
+                "config": {
+                  "visualization": "bar",
+                  "units": {},
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 10,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "domain"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 10,
+                        "skip_empty_values": true
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": "Requests"
+                      },
+                      "function": "count()"
+                    },
+                    {
+                      "config": {
+                        "name": "Known bots"
+                      },
+                      "function": "count(bot_category)"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "barmode": "stack",
+                    "axis_type": "linear"
+                  },
+                  "formatting_settings": null,
+                  "sort": [
+                    {
+                      "type": "series",
+                      "field": "count()",
+                      "direction": "Descending"
+                    }
+                  ]
+                },
+                "query": null,
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "streams": [],
+                "filter": null,
+                "type": "aggregation",
+                "stream_categories": [],
+                "id": "3604381b-7618-4f7e-9735-3e2174416ef4",
+                "filters": []
+              },
+              {
+                "config": {
+                  "visualization": "bar",
+                  "units": {},
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 10,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "country"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 10,
+                        "skip_empty_values": false
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": "Requests"
+                      },
+                      "function": "count()"
+                    },
+                    {
+                      "config": {
+                        "name": "Known bots"
+                      },
+                      "function": "count(bot_category)"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "barmode": "stack",
+                    "axis_type": "linear"
+                  },
+                  "formatting_settings": null,
+                  "sort": [
+                    {
+                      "type": "series",
+                      "field": "count()",
+                      "direction": "Descending"
+                    }
+                  ]
+                },
+                "query": null,
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "streams": [],
+                "filter": null,
+                "type": "aggregation",
+                "stream_categories": [],
+                "id": "d6a0f05b-5f24-47d9-a17a-12c83be7d47b",
+                "filters": []
+              },
+              {
+                "config": {
+                  "visualization": "table",
+                  "units": {},
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 15,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "timestamp",
+                        "domain",
+                        "ptr",
+                        "ip",
+                        "country"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 15,
+                        "skip_empty_values": true
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": "RPS (max.)"
+                      },
+                      "function": "max(req_rate)"
+                    },
+                    {
+                      "config": {
+                        "name": "Requests"
+                      },
+                      "function": "max(req_count)"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": [
+                    {
+                      "type": "pivot",
+                      "field": "timestamp",
+                      "direction": "Descending"
+                    }
+                  ]
+                },
+                "query": null,
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "streams": [],
+                "filter": null,
+                "type": "aggregation",
+                "stream_categories": [],
+                "id": "52bdace0-f1fc-49d5-adc2-942fb329244a",
+                "filters": []
+              },
+              {
+                "config": {
+                  "visualization": "bar",
+                  "units": {},
+                  "column_limit": null,
+                  "event_annotation": true,
+                  "row_limit": null,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "timestamp"
+                      ],
+                      "type": "time",
+                      "config": {
+                        "interval": {
+                          "type": "auto",
+                          "scaling": 1
+                        }
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": "Problems"
+                      },
+                      "function": "count(problem)"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "barmode": "group",
+                    "axis_type": "linear"
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                },
+                "query": null,
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "streams": [],
+                "filter": null,
+                "type": "aggregation",
+                "stream_categories": [],
+                "id": "4118aa3d-2b24-4c80-9a71-f91040d6f805",
+                "filters": []
+              },
+              {
+                "config": {
+                  "visualization": "bar",
+                  "units": {},
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 10,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "domain"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 10,
+                        "skip_empty_values": true
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": "Problems"
+                      },
+                      "function": "count(problem)"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "barmode": "stack",
+                    "axis_type": "linear"
+                  },
+                  "formatting_settings": null,
+                  "sort": [
+                    {
+                      "type": "series",
+                      "field": "count(problem)",
+                      "direction": "Descending"
+                    }
+                  ]
+                },
+                "query": null,
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "streams": [],
+                "filter": null,
+                "type": "aggregation",
+                "stream_categories": [],
+                "id": "62c817d6-8ea9-4105-9213-5423ad1d2c4e",
+                "filters": []
+              },
+              {
+                "config": {
+                  "visualization": "line",
+                  "units": {},
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": null,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "timestamp"
+                      ],
+                      "type": "time",
+                      "config": {
+                        "interval": {
+                          "type": "auto",
+                          "scaling": 1
+                        }
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": "RPM (sum)"
+                      },
+                      "function": "sum(req_rate)"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "interpolation": "linear",
+                    "axis_type": "linear"
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                },
+                "query": null,
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "streams": [],
+                "filter": null,
+                "type": "aggregation",
+                "stream_categories": [],
+                "id": "e1718c48-e17a-42d4-834f-002b9d177470",
+                "filters": []
+              },
+              {
+                "config": {
+                  "visualization": "bar",
+                  "units": {},
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": null,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "timestamp"
+                      ],
+                      "type": "time",
+                      "config": {
+                        "interval": {
+                          "type": "auto",
+                          "scaling": 1
+                        }
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": "Requests"
+                      },
+                      "function": "count()"
+                    },
+                    {
+                      "config": {
+                        "name": "Known bots"
+                      },
+                      "function": "count(bot_category)"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "barmode": "stack",
+                    "axis_type": "linear"
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                },
+                "query": null,
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "streams": [],
+                "filter": null,
+                "type": "aggregation",
+                "stream_categories": [],
+                "id": "5cf0b1c9-fa22-4247-afd4-d39b29a4e78f",
+                "filters": []
+              },
+              {
+                "config": {
+                  "visualization": "table",
+                  "units": {},
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 15,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "timestamp",
+                        "domain",
+                        "ip",
+                        "country"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 15,
+                        "skip_empty_values": true
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": "RPS (max.)"
+                      },
+                      "function": "max(req_rate)"
+                    },
+                    {
+                      "config": {
+                        "name": "Requests"
+                      },
+                      "function": "max(req_count)"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": [
+                    {
+                      "type": "pivot",
+                      "field": "timestamp",
+                      "direction": "Descending"
+                    }
+                  ]
+                },
+                "query": null,
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "streams": [],
+                "filter": null,
+                "type": "aggregation",
+                "stream_categories": [],
+                "id": "3a3b4c4d-add5-4d44-8410-ed9f0ad608bc",
+                "filters": []
+              }
+            ],
+            "widget_mapping": {
+              "3a3b4c4d-add5-4d44-8410-ed9f0ad608bc": [
+                "4254ba7c-a208-45d1-aade-e0300539c771"
+              ],
+              "e1718c48-e17a-42d4-834f-002b9d177470": [
+                "b5a834d7-a7eb-443f-a5b4-2ee0424e257a"
+              ],
+              "3604381b-7618-4f7e-9735-3e2174416ef4": [
+                "ba129862-6a7c-4ce4-8357-a1e72e15ab5c"
+              ],
+              "d6a0f05b-5f24-47d9-a17a-12c83be7d47b": [
+                "25fe325b-779a-4614-a5b1-8dd9cedef2f0"
+              ],
+              "52bdace0-f1fc-49d5-adc2-942fb329244a": [
+                "111fc515-1b0c-4eab-adac-436dfea53f09"
+              ],
+              "4118aa3d-2b24-4c80-9a71-f91040d6f805": [
+                "a5693dd7-e66f-49cf-b2c5-b88e02d098a7",
+                "b2693f04-e1ba-4e5f-9905-b0ce32303d78"
+              ],
+              "62c817d6-8ea9-4105-9213-5423ad1d2c4e": [
+                "a1bfcf23-80bf-4470-9397-01c9e7ecf37d"
+              ],
+              "5cf0b1c9-fa22-4247-afd4-d39b29a4e78f": [
+                "406fdd9b-e797-470a-8580-018aa2730c5d"
+              ]
+            },
+            "positions": {
+              "5cf0b1c9-fa22-4247-afd4-d39b29a4e78f": {
+                "col": 1,
+                "row": 1,
+                "height": 3,
+                "width": 4
+              },
+              "62c817d6-8ea9-4105-9213-5423ad1d2c4e": {
+                "col": 5,
+                "row": 4,
+                "height": 3,
+                "width": 4
+              },
+              "3a3b4c4d-add5-4d44-8410-ed9f0ad608bc": {
+                "col": 1,
+                "row": 7,
+                "height": 3,
+                "width": 6
+              },
+              "d6a0f05b-5f24-47d9-a17a-12c83be7d47b": {
+                "col": 9,
+                "row": 1,
+                "height": 3,
+                "width": 4
+              },
+              "e1718c48-e17a-42d4-834f-002b9d177470": {
+                "col": 9,
+                "row": 4,
+                "height": 3,
+                "width": 4
+              },
+              "52bdace0-f1fc-49d5-adc2-942fb329244a": {
+                "col": 7,
+                "row": 7,
+                "height": 3,
+                "width": 6
+              },
+              "3604381b-7618-4f7e-9735-3e2174416ef4": {
+                "col": 5,
+                "row": 1,
+                "height": 3,
+                "width": 4
+              },
+              "4118aa3d-2b24-4c80-9a71-f91040d6f805": {
+                "col": 1,
+                "row": 4,
+                "height": 3,
+                "width": 4
+              }
+            },
+            "formatting": {
+              "highlighting": []
+            },
+            "display_mode_settings": {
+              "positions": {}
+            }
+          },
+          "3535d8b5-9461-486e-b53e-9379f0375bf0": {
+            "selected_fields": null,
+            "static_message_list_id": null,
+            "titles": {
+              "tab": {
+                "title": "Known Bots"
+              },
+              "widget": {
+                "38fbac6b-2f00-4ba0-ab92-a9ca6b943f9c": "Bots",
+                "e91fbf58-bbb1-48f4-8775-ba7783a4ed50": "Categories",
+                "15d475c4-3351-4bb6-94b0-70e29da9adc9": "Supported vs Unsupported"
+              }
+            },
+            "widgets": [
+              {
+                "config": {
+                  "visualization": "pie",
+                  "units": {},
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 100,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "bot_category"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 100,
+                        "skip_empty_values": true
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": "Category"
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": null,
+                  "formatting_settings": null,
+                  "sort": []
+                },
+                "query": null,
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "streams": [],
+                "filter": null,
+                "type": "aggregation",
+                "stream_categories": [],
+                "id": "e91fbf58-bbb1-48f4-8775-ba7783a4ed50",
+                "filters": []
+              },
+              {
+                "config": {
+                  "visualization": "pie",
+                  "units": {},
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 100,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "bot_support"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 100,
+                        "skip_empty_values": true
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": "Supported"
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": null,
+                  "formatting_settings": null,
+                  "sort": []
+                },
+                "query": null,
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "streams": [],
+                "filter": null,
+                "type": "aggregation",
+                "stream_categories": [],
+                "id": "15d475c4-3351-4bb6-94b0-70e29da9adc9",
+                "filters": []
+              },
+              {
+                "config": {
+                  "visualization": "pie",
+                  "units": {},
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 100,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "bot_name"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 100,
+                        "skip_empty_values": true
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": "Bot"
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": null,
+                  "formatting_settings": null,
+                  "sort": []
+                },
+                "query": null,
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "streams": [],
+                "filter": null,
+                "type": "aggregation",
+                "stream_categories": [],
+                "id": "38fbac6b-2f00-4ba0-ab92-a9ca6b943f9c",
+                "filters": []
+              }
+            ],
+            "widget_mapping": {
+              "e91fbf58-bbb1-48f4-8775-ba7783a4ed50": [
+                "2e95e190-ca8f-4e58-8664-2508a8c06e9e"
+              ],
+              "15d475c4-3351-4bb6-94b0-70e29da9adc9": [
+                "799f8259-5e8a-4e09-8b51-74e6d39bd893"
+              ],
+              "38fbac6b-2f00-4ba0-ab92-a9ca6b943f9c": [
+                "61cde1e4-112b-498b-856c-ecef1382f231"
+              ]
+            },
+            "positions": {
+              "38fbac6b-2f00-4ba0-ab92-a9ca6b943f9c": {
+                "col": 1,
+                "row": 1,
+                "height": 4,
+                "width": 4
+              },
+              "e91fbf58-bbb1-48f4-8775-ba7783a4ed50": {
+                "col": 5,
+                "row": 1,
+                "height": 4,
+                "width": 4
+              },
+              "15d475c4-3351-4bb6-94b0-70e29da9adc9": {
+                "col": 9,
+                "row": 1,
+                "height": 4,
+                "width": 4
+              }
+            },
+            "formatting": {
+              "highlighting": []
+            },
+            "display_mode_settings": {
+              "positions": {}
+            }
+          },
+          "446f33dc-693e-4e97-9236-cbfae14a0380": {
+            "selected_fields": null,
+            "static_message_list_id": null,
+            "titles": {
+              "tab": {
+                "title": "SEO"
+              },
+              "widget": {
+                "a26b25e5-c911-4842-a9f7-18da918e199e": "TOP 5 Pages",
+                "5fce4304-353f-44b7-8b99-e9de460555e2": "TOP 5 Referrers",
+                "d21b4daf-f815-4bc8-bd4d-6b97add31ac5": "Response statuses",
+                "f5fb5e4e-9c5e-4ff6-9120-e92d7a28acb3": "TOP 20 User-Agents"
+              }
+            },
+            "widgets": [
+              {
+                "config": {
+                  "visualization": "table",
+                  "units": {},
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 15,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "domain"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 15,
+                        "skip_empty_values": true
+                      }
+                    },
+                    {
+                      "fields": [
+                        "http_referrer"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 15,
+                        "skip_empty_values": true
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": "Count"
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": [
+                      "domain"
+                    ]
+                  },
+                  "formatting_settings": null,
+                  "sort": [
+                    {
+                      "type": "series",
+                      "field": "count()",
+                      "direction": "Descending"
+                    }
+                  ]
+                },
+                "query": null,
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "streams": [],
+                "filter": null,
+                "type": "aggregation",
+                "stream_categories": [],
+                "id": "5fce4304-353f-44b7-8b99-e9de460555e2",
+                "filters": []
+              },
+              {
+                "config": {
+                  "visualization": "table",
+                  "units": {},
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 20,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "domain"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 20,
+                        "skip_empty_values": true
+                      }
+                    },
+                    {
+                      "fields": [
+                        "response_status"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 20,
+                        "skip_empty_values": true
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": "Count"
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": [
+                    {
+                      "type": "series",
+                      "field": "count()",
+                      "direction": "Descending"
+                    }
+                  ]
+                },
+                "query": null,
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "streams": [],
+                "filter": null,
+                "type": "aggregation",
+                "stream_categories": [],
+                "id": "d21b4daf-f815-4bc8-bd4d-6b97add31ac5",
+                "filters": []
+              },
+              {
+                "config": {
+                  "visualization": "table",
+                  "units": {},
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 20,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "http_user_agent"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 20,
+                        "skip_empty_values": true
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": "Count"
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": [
+                    {
+                      "type": "series",
+                      "field": "count()",
+                      "direction": "Descending"
+                    }
+                  ]
+                },
+                "query": null,
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "streams": [],
+                "filter": null,
+                "type": "aggregation",
+                "stream_categories": [],
+                "id": "f5fb5e4e-9c5e-4ff6-9120-e92d7a28acb3",
+                "filters": []
+              },
+              {
+                "config": {
+                  "visualization": "table",
+                  "units": {},
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 15,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "domain"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 15,
+                        "skip_empty_values": true
+                      }
+                    },
+                    {
+                      "fields": [
+                        "http_uri"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 15,
+                        "skip_empty_values": true
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": "Requests"
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": [
+                    {
+                      "type": "series",
+                      "field": "count()",
+                      "direction": "Descending"
+                    }
+                  ]
+                },
+                "query": null,
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "streams": [],
+                "filter": null,
+                "type": "aggregation",
+                "stream_categories": [],
+                "id": "a26b25e5-c911-4842-a9f7-18da918e199e",
+                "filters": []
+              }
+            ],
+            "widget_mapping": {
+              "5fce4304-353f-44b7-8b99-e9de460555e2": [
+                "f60aace4-90a6-42da-a86d-5dadc6b24493"
+              ],
+              "d21b4daf-f815-4bc8-bd4d-6b97add31ac5": [
+                "e755717c-7927-482e-a1e6-184b085fec30"
+              ],
+              "f5fb5e4e-9c5e-4ff6-9120-e92d7a28acb3": [
+                "c4459b77-2448-41d9-9dfb-72ac543ae6ea"
+              ],
+              "a26b25e5-c911-4842-a9f7-18da918e199e": [
+                "57b8d0d1-4ff8-4a72-bcf0-1ab83ea0ae5e"
+              ]
+            },
+            "positions": {
+              "a26b25e5-c911-4842-a9f7-18da918e199e": {
+                "col": 1,
+                "row": 1,
+                "height": 4,
+                "width": 6
+              },
+              "5fce4304-353f-44b7-8b99-e9de460555e2": {
+                "col": 7,
+                "row": 1,
+                "height": 4,
+                "width": 6
+              },
+              "d21b4daf-f815-4bc8-bd4d-6b97add31ac5": {
+                "col": 1,
+                "row": 5,
+                "height": 4,
+                "width": 6
+              },
+              "f5fb5e4e-9c5e-4ff6-9120-e92d7a28acb3": {
+                "col": 7,
+                "row": 5,
+                "height": 4,
+                "width": 6
+              }
+            },
+            "formatting": {
+              "highlighting": []
+            },
+            "display_mode_settings": {
+              "positions": {}
+            }
+          }
+        },
+        "properties": [],
+        "owner": "admin",
+        "title": {
+          "@type": "string",
+          "@value": "Detect7"
+        },
+        "type": "DASHBOARD",
+        "description": {
+          "@type": "string",
+          "@value": ""
+        }
+      },
+      "constraints": [
+        {
+          "type": "server-version",
+          "version": ">=6.3.3+700dd8f"
+        }
+      ]
+    },
+    {
+      "v": "1",
+      "type": {
+        "name": "input",
+        "version": "1"
+      },
+      "id": "3e05e718-1b76-46e5-b0f5-4ef0808ae535",
+      "data": {
+        "title": {
+          "@type": "string",
+          "@value": "Nginx Logs"
+        },
+        "configuration": {
+          "tls_key_file": {
+            "@type": "string",
+            "@value": ""
+          },
+          "port": {
+            "@type": "integer",
+            "@value": 12201
+          },
+          "tls_enable": {
+            "@type": "boolean",
+            "@value": false
+          },
+          "use_null_delimiter": {
+            "@type": "boolean",
+            "@value": true
+          },
+          "recv_buffer_size": {
+            "@type": "integer",
+            "@value": 10485760
+          },
+          "tcp_keepalive": {
+            "@type": "boolean",
+            "@value": false
+          },
+          "tls_client_auth_cert_file": {
+            "@type": "string",
+            "@value": ""
+          },
+          "bind_address": {
+            "@type": "string",
+            "@value": "0.0.0.0"
+          },
+          "tls_cert_file": {
+            "@type": "string",
+            "@value": ""
+          },
+          "max_message_size": {
+            "@type": "integer",
+            "@value": 20971520
+          },
+          "tls_client_auth": {
+            "@type": "string",
+            "@value": "disabled"
+          },
+          "decompress_size_limit": {
+            "@type": "integer",
+            "@value": 83886080
+          },
+          "charset_name": {
+            "@type": "string",
+            "@value": "UTF-8"
+          },
+          "number_worker_threads": {
+            "@type": "integer",
+            "@value": 4
+          },
+          "tls_key_password": {
+            "@type": "string",
+            "@value": ""
+          }
+        },
+        "static_fields": {},
+        "type": {
+          "@type": "string",
+          "@value": "org.graylog2.inputs.gelf.tcp.GELFTCPInput"
+        },
+        "global": {
+          "@type": "boolean",
+          "@value": true
+        },
+        "extractors": []
+      },
+      "constraints": [
+        {
+          "type": "server-version",
+          "version": ">=6.3.3+700dd8f"
+        }
+      ]
+    },
+    {
+      "v": "1",
+      "type": {
+        "name": "pipeline_rule",
+        "version": "1"
+      },
+      "id": "6d2c388b-b18c-4f45-a6be-5688b0aef342",
+      "data": {
+        "title": {
+          "@type": "string",
+          "@value": "gl_route_Nginx Logs[68c417165191ccdd5f0ce4df]_to_Nginx - Requests"
+        },
+        "description": {
+          "@type": "string",
+          "@value": "Input setup wizard routing rule"
+        },
+        "source": {
+          "@type": "string",
+          "@value": "rule \"gl_route_Nginx Logs[68c417165191ccdd5f0ce4df]_to_Nginx - Requests\"\nwhen has_field(\"gl2_source_input\") AND to_string($message.gl2_source_input)==\"68c417165191ccdd5f0ce4df\"\nthen\nroute_to_stream(id:\"68c417e15191ccdd5f0ce7b4\", remove_from_default: true);\nend\n"
+        }
+      },
+      "constraints": [
+        {
+          "type": "server-version",
+          "version": ">=6.3.3+700dd8f"
+        }
+      ]
+    },
+    {
+      "v": "1",
+      "type": {
+        "name": "stream",
+        "version": "1"
+      },
+      "id": "c1a2ab79-88ce-4a3b-8640-1602c5e3156c",
+      "data": {
+        "alarm_callbacks": [],
+        "outputs": [],
+        "remove_matches": {
+          "@type": "boolean",
+          "@value": true
+        },
+        "title": {
+          "@type": "string",
+          "@value": "Nginx - Attacks"
+        },
+        "stream_rules": [
+          {
+            "type": {
+              "@type": "string",
+              "@value": "EXACT"
+            },
+            "field": {
+              "@type": "string",
+              "@value": "tag"
+            },
+            "value": {
+              "@type": "string",
+              "@value": "ddos7_challenge"
+            },
+            "inverted": {
+              "@type": "boolean",
+              "@value": false
+            },
+            "description": {
+              "@type": "string",
+              "@value": ""
+            }
+          }
+        ],
+        "alert_conditions": [],
+        "matching_type": {
+          "@type": "string",
+          "@value": "AND"
+        },
+        "disabled": {
+          "@type": "boolean",
+          "@value": false
+        },
+        "description": {
+          "@type": "string",
+          "@value": ""
+        },
+        "default_stream": {
+          "@type": "boolean",
+          "@value": false
+        }
+      },
+      "constraints": [
+        {
+          "type": "server-version",
+          "version": ">=6.3.3+700dd8f"
+        }
+      ]
+    },
+    {
+      "v": "1",
+      "type": {
+        "name": "stream",
+        "version": "1"
+      },
+      "id": "774a0990-32be-42ad-9744-70db871e72f3",
+      "data": {
+        "alarm_callbacks": [],
+        "outputs": [],
+        "remove_matches": {
+          "@type": "boolean",
+          "@value": true
+        },
+        "title": {
+          "@type": "string",
+          "@value": "Nginx - Requests"
+        },
+        "stream_rules": [
+          {
+            "type": {
+              "@type": "string",
+              "@value": "EXACT"
+            },
+            "field": {
+              "@type": "string",
+              "@value": "tag"
+            },
+            "value": {
+              "@type": "string",
+              "@value": "ddos7_request"
+            },
+            "inverted": {
+              "@type": "boolean",
+              "@value": false
+            },
+            "description": {
+              "@type": "string",
+              "@value": ""
+            }
+          }
+        ],
+        "alert_conditions": [],
+        "matching_type": {
+          "@type": "string",
+          "@value": "AND"
+        },
+        "disabled": {
+          "@type": "boolean",
+          "@value": false
+        },
+        "description": {
+          "@type": "string",
+          "@value": ""
+        },
+        "default_stream": {
+          "@type": "boolean",
+          "@value": false
+        }
+      },
+      "constraints": [
+        {
+          "type": "server-version",
+          "version": ">=6.3.3+700dd8f"
+        }
+      ]
+    },
+    {
+      "v": "1",
+      "type": {
+        "name": "stream_title",
+        "version": "1"
+      },
+      "id": "a4cbbe24-162e-4114-ae93-d9c7687e202a",
+      "data": {
+        "title": {
+          "@type": "string",
+          "@value": "All events"
+        }
+      },
+      "constraints": [
+        {
+          "type": "server-version",
+          "version": ">=6.3.3+700dd8f"
+        }
+      ]
+    },
+    {
+      "v": "1",
+      "type": {
+        "name": "stream_title",
+        "version": "1"
+      },
+      "id": "bfbc2fdf-034a-473b-a3fb-07b54d9168ab",
+      "data": {
+        "title": {
+          "@type": "string",
+          "@value": "All system events"
+        }
+      },
+      "constraints": [
+        {
+          "type": "server-version",
+          "version": ">=6.3.3+700dd8f"
+        }
+      ]
+    }
+  ]
+}

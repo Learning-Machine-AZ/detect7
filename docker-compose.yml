@@ -1,0 +1,165 @@
+services:
+  # === lan7 STACK ===
+
+  # MongoDB for Graylog
+  mongodb:
+    image: "mongo:6.0"
+    container_name: detect7-graylog_mongodb
+    restart: unless-stopped
+    networks:
+      - lan7
+    volumes:
+      - ./server/mongodb/data:/data/db
+      - ./server/mongodb/config:/data/configdb
+
+  # Graylog DataNode - pass: admin7
+  graylog-datanode:
+    image: "graylog/graylog-datanode:6.3.3"
+    container_name: detect7-graylog_datanode
+    hostname: datanode
+    restart: unless-stopped
+    depends_on:
+      - mongodb
+    environment:
+      GRAYLOG_DATANODE_NODE_ID_FILE: "/var/lib/graylog-datanode/node-id"
+      GRAYLOG_DATANODE_PASSWORD_SECRET: "${GRAYLOG_PASSWORD_SECRET:-578e8543e4264cb2736f8564a5a21cf63f5d9004b5d611e320a80f70eb765a7b}"
+      GRAYLOG_DATANODE_MONGODB_URI: "mongodb://mongodb:27017/graylog"
+    ulimits:
+      memlock:
+        hard: -1
+        soft: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    networks:
+      - lan7
+    volumes:
+      - ./server/graylog/datanode:/var/lib/graylog-datanode
+
+  # Graylog Server - admin:admin7
+  graylog:
+    image: "graylog/graylog:6.3.3"
+    container_name: detect7-graylog_server
+    hostname: server
+    restart: unless-stopped
+    depends_on:
+      - mongodb
+      - graylog-datanode
+    entrypoint: "/usr/bin/tini -- /docker-entrypoint.sh"
+    environment:
+      GRAYLOG_NODE_ID_FILE: "/usr/share/graylog/data/data/node-id"
+      GRAYLOG_PASSWORD_SECRET: "${GRAYLOG_PASSWORD_SECRET:-578e8543e4264cb2736f8564a5a21cf63f5d9004b5d611e320a80f70eb765a7b}"
+      GRAYLOG_ROOT_PASSWORD_SHA2: "${GRAYLOG_ROOT_PASSWORD_SHA2:-a5e35483f1745c0f4f3de950861d6aaed488c25da7d342a8827a3fc7b0e73186}"
+      GRAYLOG_HTTP_BIND_ADDRESS: "0.0.0.0:9000"
+      GRAYLOG_HTTP_EXTERNAL_URI: "http://localhost:9000/"
+      GRAYLOG_MONGODB_URI: "mongodb://mongodb:27017/graylog"
+    networks:
+      lan7:
+        ipv4_address: 10.10.0.200
+    volumes:
+      - ./server/graylog/data:/usr/share/graylog/data/data
+      - ./server/graylog/plugin:/usr/share/graylog/plugin
+
+  # === PYTHON SERVICES STACK ===
+
+  # Syslog Server
+  syslog-server:
+    build:
+      context: .
+      dockerfile: PY313-DETECT7.Dockerfile
+    image: "python313-detect7"
+    container_name: detect7-syslog-server
+    restart: unless-stopped
+    command: python syslog_server.py
+    depends_on:
+      - redis
+      - rabbitmq
+      - bind9
+    networks:
+      lan7:
+        ipv4_address: 10.10.0.100
+    volumes:
+      - ./app:/app
+
+  # ML Worker
+  ml-worker:
+    image: "python313-detect7"
+    container_name: detect7-ml-worker
+    restart: unless-stopped
+    command: python ml_worker.py
+    depends_on:
+      - syslog-server
+      - redis
+      - rabbitmq
+    networks:
+      - lan7
+    volumes:
+      - ./app:/app
+
+  # Graylog Worker
+  graylog-worker:
+    image: "python313-detect7"
+    container_name: detect7-graylog-worker
+    restart: unless-stopped
+    command: python graylog_worker.py
+    depends_on:
+      - syslog-server
+      - redis
+      - rabbitmq
+      - graylog
+    networks:
+      - lan7
+    volumes:
+      - ./app:/app
+
+  # === INFRASTRUCTURE SERVICES ===
+
+  # Redis Cache
+  redis:
+    image: "redis:latest"
+    container_name: detect7-redis
+    restart: unless-stopped
+    networks:
+      lan7:
+        ipv4_address: 10.10.0.50
+    volumes:
+      - ./server/redis/data:/data
+
+  # RabbitMQ Message Queue
+  rabbitmq:
+    image: "rabbitmq:management-alpine"
+    container_name: detect7-ampq
+    restart: unless-stopped
+    environment:
+      RABBITMQ_DEFAULT_USER: ddos7
+      RABBITMQ_DEFAULT_PASS: "${RABBITMQ_DEFAULT_PASS:-ddos7}"
+      RABBITMQ_DEFAULT_VHOST: /
+    networks:
+      lan7:
+        ipv4_address: 10.10.0.4
+    volumes:
+      - ./server/rabbitmq/data:/var/lib/rabbitmq
+
+  # DNS Server
+  bind9:
+    image: "ubuntu/bind9:latest"
+    container_name: detect7-bind9
+    restart: unless-stopped
+    environment:
+      BIND9_USER: root
+      TZ: UTC
+    networks:
+      lan7:
+        ipv4_address: 10.10.0.250
+    volumes:
+      - ./server/bind9/data:/var/lib/bind
+
+# === NETWORK ===
+networks:
+  lan7:
+    driver: bridge
+    enable_ipv6: false
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.0.0/16
